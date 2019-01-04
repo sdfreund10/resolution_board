@@ -1,0 +1,13 @@
+<div class='small-page'>
+  <div class='title'>
+    <h1>Change Your Resolution</h1>
+    <h4>How have your goals changed?</h4>
+  </div>
+  <div class='content'>
+    <%= render "form" %>
+    <div class='form-row'>
+      <%= button_to "Delete", resolution_url(@resolution),
+                    method: :delete, data: { confirm: "Are you sure?" }, class: "button" %>
+    </div>
+  </div>
+</div>

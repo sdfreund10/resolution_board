@@ -1,0 +1,43 @@
+<div class='title'>
+  <h1> Resolution Board </h1>
+  <h4> See how your goals are progressing</h4>
+</div>
+<div class='content'>
+  <% @resolutions.each do |resolution| %>
+    <div class='resolution-card'>
+      <div class='resolution-card-row'>
+        <div class='col goal-title'><strong><%=resolution.title%></strong></div>
+        <div class='progress-text'>
+          <div>
+            <% latest_update = resolution.last_update %>
+            <% unless latest_update.nil? %>
+              <label class='update-label'>
+                Last Updated <%= latest_update.date.to_s %>: <%= latest_update.summary %>
+              </label>
+            <% end %>
+          </div>
+          <div>
+            <%= "#{resolution.total_progress}/#{resolution.goal} #{resolution.unit}" %>
+          </div>
+        </div>
+      </div>
+      <div class='resolution-card-row'>
+        <div class='actions col'>
+          <%= link_to("Add Update", new_resolution_update_url(resolution)) %>
+          <span>|</span>
+          <%= link_to("Manage", edit_resolution_url(resolution)) %>
+        </div>
+        <div class='col'>
+          <div class='completed-bar'
+               style='width: <%= resolution.percentage_completed %>%'>
+          </div>
+          <div class='togo-bar'
+               style='width: <%= 100 - resolution.percentage_completed %>%'>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+  <%= link_to "Make A Resolution", new_resolution_url, class: 'button resolution-card add-card' %>
+</div>
+

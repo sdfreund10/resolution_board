@@ -1,0 +1,37 @@
+<% submit_url = @resolution.new_record? ? resolutions_url : resolution_url(@resolution) %>
+<%= form_for(
+      @resolution,
+      html: { class: 'form-center' }
+    ) do |form| %>
+  <div class='form-row'>
+    <div class='form-element large-element'>
+      <label>Title</label>
+      <%= form.text_field :title, placeholder: "Make 3 resolutions" %>
+    </div>
+  </div>
+  <div class='form-row'>
+    <div class='form-element'>
+      <label>Goal</label>
+      <%= form.text_field :goal, placeholder: 3 %>
+    </div>
+    <div class='form-element'>
+      <label>Unit</label>
+      <%= form.text_field :unit, placeholder: "Resolutions" %>
+    </div>
+  </div>
+  <div class='form-row'>
+    <div class='form-element'>
+      <label>Start Date</label>
+      <%= form.date_field :start_date %>
+    </div>
+    <div class='form-element'>
+      <label>End Date</label>
+      <%= form.date_field :end_date %>
+    </div>
+  </div>
+  <div class='form-row'>
+    <%= form.submit "Submit", class: "button" %>
+    <%= link_to "Cancel", resolutions_url, class: "button" %>
+  </div>
+<% end %>
+

@@ -1,0 +1,51 @@
+div.resolution-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 10px;
+  border: solid black 1px;
+}
+
+div.resolution-card-row {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+div.col {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+label.update-label {
+  flex-grow: 2;
+}
+
+div.progress-text {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.completed-bar {
+  background-color: green;
+  height: 20px;
+}
+
+div.togo-bar {
+  background-color: gray;
+  height: 20px;
+}
+
+a.add-card {
+  width: 300px;
+  display: block;
+  text-align: center;
+  background-color: #d4edda;
+  padding: 20px;
+  margin: auto;
+  border: solid #c3e6cb 1px;
+}
+

@@ -1,0 +1,89 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+div.small-page {
+  width: 70%;
+  margin: auto;
+  border: 0 1px solid black
+}
+
+div.title {
+  font-family: sans-serif;
+  text-align: center;
+  border-bottom: solid black 1px;
+}
+
+div.content {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+
+div#flash-alert {
+  opacity: 0;
+  font-family: sans-serif;
+  min-width: 250px;
+  transform: translate(-50%);
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+  transition: opacity 250ms ease-in-out;
+}
+
+div#flash-alert.error {
+  background-color: #f9dede;
+  color: #000c;
+}
+
+form.form-center {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+div.form-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+div.form-element {
+  width: 25%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+div.form-element input {
+  text-align: center;
+}
+
+div.large-element {
+  width: 50%;
+}
+
+.button {
+  margin: 10px;
+  width: 150px;
+  border: solid 1px #AAA;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  padding: 2px;
+  text-decoration: none;
+  color: #000;
+}
+

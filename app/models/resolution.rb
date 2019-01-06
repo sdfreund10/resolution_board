@@ -14,7 +14,11 @@ class Resolution < ApplicationRecord
 
   def percentage_completed
     return 0 if goal.zero?
+
     (BigDecimal(total_progress) / BigDecimal(goal)) * 100
   end
-end
 
+  def complete?
+    total_progress >= goal
+  end
+end

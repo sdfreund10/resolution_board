@@ -5,34 +5,32 @@
 <div class='content'>
   <% @resolutions.each do |resolution| %>
     <div class='resolution-card'>
+      <%= link_to octicon("pencil", height: 20),
+                  edit_resolution_url(resolution),
+                  class: 'edit-button' %>
       <div class='resolution-card-row'>
         <div class='col goal-title'><strong><%=resolution.title%></strong></div>
         <div class='progress-text'>
-          <div>
-            <% latest_update = resolution.last_update %>
-            <% unless latest_update.nil? %>
-              <label class='update-label'>
-                Last Updated <%= latest_update.date.to_s %>: <%= latest_update.summary %>
-              </label>
-            <% end %>
-          </div>
-          <div>
-            <%= "#{resolution.total_progress}/#{resolution.goal} #{resolution.unit}" %>
-          </div>
+          <% latest_update = resolution.last_update %>
+          <% unless latest_update.nil? %>
+            <label class='update-label'>
+              Last Updated <%= latest_update.date.to_s %>: <%= latest_update.summary %>
+            </label>
+          <% end %>
         </div>
       </div>
       <div class='resolution-card-row'>
         <div class='actions col'>
-          <%= link_to("Add Update", new_resolution_update_url(resolution)) %>
-          <span>|</span>
-          <%= link_to("Manage", edit_resolution_url(resolution)) %>
+          <%= link_to "Add Update", new_resolution_update_url(resolution), class: "update-link" %>
         </div>
         <div class='col'>
-          <div class='completed-bar'
-               style='width: <%= resolution.percentage_completed %>%'>
-          </div>
-          <div class='togo-bar'
-               style='width: <%= 100 - resolution.percentage_completed %>%'>
+          <div class='progress-bar'>
+            <div class='completed-bar <%= 'full' if resolution.complete? %>'
+                 style='width: <%= [resolution.percentage_completed, 100].min %>%'>
+            </div>
+            <span class='progress'>
+              <%= "#{resolution.total_progress}/#{resolution.goal} #{resolution.unit}" %>
+            </span>
           </div>
         </div>
       </div>

@@ -3,15 +3,17 @@ div.resolution-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
   margin: 10px;
-  border: solid black 1px;
+  border: solid #ddd 1px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 div.resolution-card-row {
   margin: 10px 0;
   display: grid;
   grid-template-columns: 25% 75%;
+  align-items: center;
 }
 
 div.col {
@@ -19,33 +21,80 @@ div.col {
   justify-content: space-evenly;
 }
 
-label.update-label {
-  flex-grow: 2;
+.edit-button {
+  float: right;
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  svg {
+    fill: #555;
+  }
+
+  svg:hover {
+    fill: #111;
+  }
 }
 
-div.progress-text {
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
+a.update-link {
+  border: 1px solid #BBB;
+  padding: 5px 25px;
+  border-radius: 3px;
+  color: black;
+  text-decoration: none;
+  transition: background-color .25s ease-in-out;
+}
+
+a.update-link:hover {
+  background-color: #DDD;
+}
+
+.resolution-card:hover .edit-button {
+  display: block;
 }
 
 div.completed-bar {
-  background-color: green;
+  border-radius: 5px 0 0 5px;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+  background-color: #5cb85c;
   height: 20px;
 }
 
-div.togo-bar {
-  background-color: gray;
+div.progress-bar {
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+  border-radius: 5px;
+  background-color: #f5f5f5;
   height: 20px;
+  width: 100%;
 }
+
+div.completed-bar.full {
+  border-radius: 5px;
+}
+
+span.progress {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  text-align: center;
+  top: 0;
+  padding: 1px;
+}
+
 
 a.add-card {
   width: 300px;
   display: block;
   text-align: center;
-  background-color: #d4edda;
   padding: 20px;
   margin: auto;
-  border: solid #c3e6cb 1px;
+  transition: background-color .25s ease-in-out;
+}
+
+a.add-card:hover {
+  background-color: #76D276;
 }
 

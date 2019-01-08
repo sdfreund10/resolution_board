@@ -1,14 +1,19 @@
 require 'test_helper'
 
 class ResolutionsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   def setup
     Resolution.create!(  
       title: "Goal 1",
       goal: 100,
       unit: "tests",
       start_date: Date.new(2019, 1, 1),
-      end_date: Date.new(2019, 12, 31)
+      end_date: Date.new(2019, 12, 31),
+      user: User.first
     )
+
+    sign_in User.first
   end
 
   test "index assigns all resolutions" do

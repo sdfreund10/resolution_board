@@ -1,0 +1,35 @@
+<div class='small-page'>
+  <div class='title'>
+    <h1> Resolution Board </h1>
+    <h4> Log In or Sign Up</h4>
+  </div>
+
+  <div class='content'>
+    <%= form_for(resource,
+                 as: resource_name,
+                 url: session_path(resource_name),
+                 html: { class: "form-center" }) do |f| %>
+      <div class="form-row">
+        <div class="form-element large-element">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="form-element large-element">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+      </div>
+    
+      <div class="form-row">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    
+      <div class="form-row">
+        <%= f.submit "Log in", class: "button wide-button" %>
+      </div>
+    <% end %>
+    
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

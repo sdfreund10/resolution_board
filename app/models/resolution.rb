@@ -3,6 +3,7 @@
 class Resolution < ApplicationRecord
   validates_presence_of :title, :goal, :unit, :start_date, :end_date
   has_many :updates
+  belongs_to :user
 
   def last_update
     updates.max_by(&:created_at)

@@ -17,6 +17,7 @@ div.title {
 
 div.content {
   padding: 20px;
+  padding-bottom: 75px;
   font-family: sans-serif;
 }
 
@@ -37,6 +38,7 @@ div#flash-alert {
   bottom: 30px;
   font-size: 17px;
   transition: opacity 250ms ease-in-out;
+  z-index: 3;
 }
 
 div#flash-alert.error {
@@ -85,5 +87,41 @@ div.large-element {
   padding: 2px;
   text-decoration: none;
   color: #000;
+}
+
+.wide-button {
+  width: 200px;
+}
+
+.footer {
+  font-family: sans-serif;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #FFF;
+  display: flex;
+  justify-content: space-between;
+  border-top: solid #AAA 5px;
+  border-bottom: solid #AAA 2px;
+  z-index: 2;
+}
+
+.footer-button {
+  width: 150px;
+  border: solid 1px #AAA;
+  border-top: 0;
+  border-bottom: 0;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  text-decoration: none;
+  color: #000;
+  background-color: #FFF;
+  transition: background-color .15s ease-in-out;
+}
+
+.footer-button:hover {
+  background-color: #DDD;
 }
 

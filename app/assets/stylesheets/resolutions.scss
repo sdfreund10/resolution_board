@@ -87,14 +87,27 @@ span.progress {
 
 a.add-card {
   width: 300px;
-  display: block;
-  text-align: center;
-  padding: 20px;
   margin: auto;
   transition: background-color .25s ease-in-out;
 }
 
 a.add-card:hover {
+  background-color: #76D276;
+}
+
+div.empty-contiainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a.add-button {
+  padding: 10px 30px;
+  background-color: #76D27699;
+  transition: background-color 0.25s ease-in-out;
+}
+
+a.add-button:hover {
   background-color: #76D276;
 }
 

@@ -1,26 +1,28 @@
 <% if flash[:alert] %>
   <div id='flash-alert' class='error'  role='alert'>
-    <% flash[:alert].each do |alert| %>
+    <% Array(flash[:alert]).each do |alert| %>
       <p><strong><%= alert %></strong></p>
     <% end %>
   </div>
 <% elsif flash[:success] %>
   <div id='flash-alert'>
-    <% flash[:success].each do |success| %>
+    <% Array(flash[:success]).each do |success| %>
       <p><strong><%= success %></strong></p>
     <% end %>
   </div>
 <% end %>
 
 <script>
-  setTimeout(
-    () => {
-      const alert = document.getElementById('flash-alert');
-      alert.style.opacity = '100';
+  if (document.getElementById('flash-alert')) {
+    setTimeout(
+      () => {
+        const alert = document.getElementById('flash-alert');
+        alert.style.opacity = '100';
 
-      setTimeout(() => alert.style.opacity = '0', 5000);
-    },
-    250
-  );
+        setTimeout(() => alert.style.opacity = '0', 5000);
+      },
+      250
+    );
+  }
 </script>
 

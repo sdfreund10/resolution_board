@@ -1,6 +1,8 @@
 class ResolutionsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @resolutions = Resolution.all.includes(:updates)
+    @resolutions = Resolution.where(user: current_user).includes(:updates)
   end
 
   def new
@@ -8,10 +10,10 @@ class ResolutionsController < ApplicationController
   end
 
   def create
-    resolution = Resolution.new(resolution_params)
+    resolution = Resolution.new(resolution_params.merge(user: current_user))
 
     if resolution.save
-      flash[:success] = ["Resolution made.", "Don't forget to update it!"]
+      flash[:success] = ["Resolution made"]
       redirect_to resolutions_url
     else
       set_flash(resolution.errors)

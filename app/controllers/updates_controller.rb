@@ -2,7 +2,7 @@
 
 class UpdatesController < ApplicationController
   attr_reader :resolution
-  before_action :set_resolution
+  before_action :set_resolution,:authenticate_user!
 
   def index
     @updates = resolution.updates
